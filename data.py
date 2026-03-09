@@ -12,4 +12,13 @@ df.info()
 print(df.columns)
 df.isnull().sum()
 df.describe()
+# Remove duplicate rows
+duplicates = df.duplicated().sum()
+print("Duplicate rows:", duplicates)
+
+df = df.drop_duplicates()
+
+# Check dataset structure
+print(df.info())
+
 df.to_csv("processed_data.csv", index=False)
